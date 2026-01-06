@@ -152,7 +152,7 @@ class MCQApp:
         if allows_multiple:
             selected = [idx for idx, var in enumerate(self.selected_vars) if var.get()]
         else:
-        selected_index = self.selected_vars[0].get()
+            selected_index = self.selected_vars[0].get()
             selected = [] if selected_index == -1 else [selected_index]
 
         return selected

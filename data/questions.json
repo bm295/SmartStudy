@@ -1,0 +1,56 @@
+{
+  "topics": [
+    {
+      "id": "psm1",
+      "name": "PSM I",
+      "questions": [
+        {
+          "id": "psm1-001",
+          "text": "You have just been hired by a company new to Scrum. Your management has assigned you as the Scrum Master of six new Scrum Teams. These teams will build one product. Select two conditions you should strive for in this scenario.",
+          "choices": [
+            "There should be six Product Owners, one for each Scrum Team.",
+            "There should be six Product Owners, reporting to a chief Product Owner.",
+            "The product has one Product Backlog.",
+            "Each Scrum Team should have a separate Product Backlog.",
+            "There should be only one Product Owner."
+          ],
+          "correctAnswers": [2, 4]
+        },
+        {
+          "id": "psm1-002",
+          "text": "A Scrum Team has been working on a product for nine Sprints. A new Product Owner comes in, understanding he is accountable for the Product Backlog. However, he is unsure about his responsibilities. Which two activities are part of the Product Owner role according to Scrum?",
+          "choices": [
+            "Ensuring that the most valuable functionality is produced first, at all times.",
+            "Interacting with stakeholders.",
+            "Providing the Scrum Team with detailed specifications.",
+            "Describing features as Use Cases.",
+            "Creating detailed functional test cases."
+          ],
+          "correctAnswers": [0, 1]
+        },
+        {
+          "id": "psm1-003",
+          "text": "User documentation is part of your Definition of Done. However, there aren't enough technical writers for all teams. Your Developers don't have a technical writer. What should you do?",
+          "choices": [
+            "Form a separate team of technical writers that will work on an on-demand basis for the various Product Owners. Work order will be first in, first out.",
+            "Let the user documentation remain undone and accumulate until after the last development Sprint. It will then be done by any available technical writers.",
+            "Wait until you have a technical writer on your Scrum Team to take care of this.",
+            "Your Scrum Team is still responsible for creating user documentation. In this case, the Scrum Team members will write it."
+          ],
+          "correctAnswers": [3]
+        },
+        {
+          "id": "psm1-004",
+          "text": "You are the Scrum Master for four Scrum Teams working from the same Product Backlog. Several Developers complain that work identified for the upcoming two Sprints will require full-time commitment from a technical specialist who is external to the teams. What are two key concerns for the Scrum Master to take into account in this situation?",
+          "choices": [
+            "The desire to maintain a stable velocity.",
+            "The benefit of Developers figuring out a solution for themselves.",
+            "The need to have enough work to keep all Developers busy.",
+            "The ability of the Developers to produce integrated Increments."
+          ],
+          "correctAnswers": [1, 3]
+        }
+      ]
+    }
+  ]
+}

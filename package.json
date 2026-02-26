@@ -1,0 +1,11 @@
+{
+  "name": "smartstudy-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SmartStudy AI - Angular 19 blueprint for intelligent learning platform",
+  "scripts": {
+    "start": "echo 'Use Angular CLI workspace setup to run this blueprint'",
+    "lint": "echo 'Add ESLint configuration in full Angular workspace'",
+    "test": "echo 'Add unit tests with Karma/Jest in full Angular workspace'"
+  }
+}

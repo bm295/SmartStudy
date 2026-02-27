@@ -1,78 +1,98 @@
-# 🚀 SmartStudy AI
+﻿# SmartStudy AI
 
-Nền tảng học tập thông minh cho học sinh, sinh viên, tập trung vào việc **lập kế hoạch tự động**, **theo dõi tiến độ**, **ôn tập thông minh bằng flashcard/quiz**, và **duy trì sự tập trung bằng Pomodoro + gamification**.
+SmartStudy AI is a learning platform blueprint for students, focused on:
+- automatic study planning
+- progress tracking
+- smart review with flashcards/quizzes
+- focus support with Pomodoro and gamification
 
-## ✨ Giá trị cốt lõi
+## Core Value
 
-- Giúp người học tránh học dồn sát deadline.
-- Hiển thị rõ môn nào đang yếu thông qua dashboard phân tích.
-- Quản lý nhiều môn học trong một lộ trình thống nhất.
-- Tạo động lực học mỗi ngày bằng XP, level, badge và leaderboard.
+- Helps learners avoid last-minute cramming.
+- Shows weak subjects clearly through dashboard analytics.
+- Manages multiple subjects in one consistent workflow.
+- Builds daily motivation with XP, levels, badges, and leaderboards.
 
-## 🧩 Tính năng chính
+## Main Features
 
-1. **Dashboard thông minh**
-   - Biểu đồ tiến độ theo môn.
-   - Tỷ lệ hoàn thành task theo tuần/tháng.
-   - Cảnh báo deadline sắp đến.
+1. Smart Dashboard
+- Subject progress charts.
+- Weekly and monthly task completion rates.
+- Upcoming deadline alerts.
 
-2. **AI Study Planner**
-   - Nhập deadline học phần hoặc kỳ thi.
-   - Tự động chia nhỏ task theo thời gian còn lại.
-   - Tự điều chỉnh kế hoạch nếu người dùng bỏ lỡ buổi học.
+2. AI Study Planner
+- Enter course or exam deadlines.
+- Automatically splits tasks by remaining time.
+- Rebalances the plan if users miss sessions.
 
-3. **Flashcard & Quiz Generator**
-   - Upload tài liệu (PDF) để trích xuất nội dung.
-   - Sinh flashcard và câu hỏi trắc nghiệm.
-   - Chấm điểm và thống kê độ chính xác theo chủ đề.
+3. Flashcard and Quiz Generator
+- Upload study materials (PDF).
+- Generate flashcards and multiple-choice questions.
+- Track accuracy by topic.
 
-4. **Pomodoro Focus Mode**
-   - Đồng hồ Pomodoro (focus/break).
-   - Theo dõi số phiên tập trung mỗi ngày.
-   - Thống kê thời gian học theo tuần.
+4. Pomodoro Focus Mode
+- Focus/break timer.
+- Daily focused session tracking.
+- Weekly study time summary.
 
-5. **Gamification**
-   - XP / level / badge theo thành tích.
-   - Bảng xếp hạng lớp học hoặc nhóm học.
+5. Gamification
+- XP, levels, and badges.
+- Class or study-group leaderboard.
 
-## 🏗️ Kiến trúc đề xuất
+## Proposed Architecture
 
 ### Frontend (Angular 19)
-- Standalone Components.
-- Angular Signals cho state local/reactive UI.
-- Lazy loaded routes cho từng module tính năng.
-- Angular Material hoặc TailwindCSS.
-- Guards + Interceptors cho bảo mật và API flow.
-- SSR (tùy chọn) nếu cần SEO.
+- Standalone components.
+- Angular Signals for local/reactive UI state.
+- Lazy-loaded routes by feature.
+- Angular Material or Tailwind CSS.
+- Guards and interceptors for security and API flow.
+- Optional SSR for SEO.
 
-### Backend (gợi ý)
+### Backend (suggested)
 - NestJS (Node.js).
-- MongoDB hoặc PostgreSQL.
+- MongoDB or PostgreSQL.
 - Firebase Authentication.
-- OpenAI API để tạo quiz/flashcard thông minh.
-- WebSocket cho đồng bộ tiến độ realtime.
+- OpenAI API for intelligent quiz/flashcard generation.
+- WebSocket for real-time progress sync.
 
-## 📁 Cấu trúc repo hiện tại
+## Current Repository Structure
 
-- `src/`:
-  - App shell, routes, feature components dạng standalone.
-  - Store dựa trên Angular Signals cho dữ liệu học tập.
-- `docs/architecture.md`:
-  - Luồng nghiệp vụ, schema dữ liệu và roadmap triển khai.
-- `Archived/`:
-  - Toàn bộ mã cũ đã được lưu trữ.
+- `smartstudy-ai/`
+- Active Angular CLI workspace (single maintained app codebase).
+- App shell, routes, feature components, and services.
 
-## 🚀 Bắt đầu nhanh (định hướng)
+- `docs/architecture.md`
+- Business flow, data schema, and implementation roadmap.
+
+- `Archived/`
+- Legacy source code kept for reference.
+
+## Run the App (Single Source of Truth)
+
+Use only one codebase for maintenance: `smartstudy-ai/`.
+
+### First-time setup (one time)
 
 ```bash
+npm install -g @angular/cli
+ng new smartstudy-ai --routing --style=scss
+cd smartstudy-ai
 npm install
-npm run start
+ng serve
 ```
 
-> Lưu ý: repo hiện ở mức **blueprint + starter code** để phục vụ đồ án/POC. Có thể mở rộng trực tiếp sang Angular CLI workspace đầy đủ.
+### Next runs
 
-## 💸 Mô hình kiếm tiền
+```bash
+cd smartstudy-ai
+ng serve
+```
 
-- **Freemium**: giới hạn số môn học và số lượt tạo quiz AI.
-- **Premium cá nhân**: không giới hạn AI + analytics nâng cao.
-- **Gói trường học**: dashboard lớp học, quản lý giáo viên, báo cáo theo học kỳ.
+Keep `smartstudy-ai/` as the only active app code.
+
+## Monetization Model
+
+- Freemium: limited subjects and limited AI quiz generations.
+- Individual Premium: unlimited AI usage and advanced analytics.
+- School plan: class dashboard, teacher management, and term reports.

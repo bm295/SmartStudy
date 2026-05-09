@@ -1,8 +1,11 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { AuthStateService } from './core/auth/auth-state.service';
 
 @Component({
   selector: 'smartstudy-root',
   standalone: true,
+  imports: [RouterOutlet, RouterLink],
   template: `
     <main>
       <h1>SmartStudy AI</h1>
@@ -10,10 +13,28 @@ import { Component, computed, signal } from '@angular/core';
       <section>
         <strong>Upcoming deadlines:</strong> {{ upcomingDeadlines() }}
       </section>
+
+      <p>
+        Authentication status:
+        <strong>{{ auth.isAuthenticated() ? 'Logged in' : 'Logged out' }}</strong>
+      </p>
+
+      <nav>
+        <a routerLink="/">Dashboard</a> |
+        <a routerLink="/auth">Auth</a> |
+        <a routerLink="/planner">Planner</a> |
+        <a routerLink="/flashcards">Flashcards</a> |
+        <a routerLink="/pomodoro">Pomodoro</a> |
+        <a routerLink="/gamification">Gamification</a>
+      </nav>
+
+      <router-outlet></router-outlet>
     </main>
   `,
 })
 export class AppComponent {
+  readonly auth = inject(AuthStateService);
+
   readonly productName = signal('SmartStudy AI');
   readonly deadlines = signal([
     { subject: 'Math', dueInDays: 2 },

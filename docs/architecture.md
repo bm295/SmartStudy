@@ -48,3 +48,21 @@
 2. AI phase: upload PDF + quiz generation.
 3. Analytics phase: dashboard nâng cao + học lực theo chủ đề.
 4. Community phase: leaderboard lớp học + chia sẻ bộ flashcard.
+
+## 7) Recommended design patterns for this repo
+
+### Primary choice: **Feature-first + Facade pattern**
+- Keep each domain (`dashboard`, `planner`, `flashcards`, `pomodoro`, `gamification`) as an isolated feature module/folder.
+- Expose one facade per feature (for example `PlannerFacade`) to coordinate UI state, API calls, and mapping from DTOs to view models.
+- Components should depend on facades instead of calling multiple services directly.
+
+Why this is the best fit now:
+- The repo already organizes code by feature components.
+- It keeps Angular components thin and testable.
+- It creates a clean path for scaling each feature independently.
+
+### Supporting patterns
+- **Strategy pattern** for planner algorithms (e.g., exam-cram strategy vs. spaced repetition strategy).
+- **Repository pattern** at data-access boundaries (API/local DB wrappers) so data source changes do not leak into components.
+- **Observer/Reactive pattern** through Angular Signals + RxJS for UI reactivity and async workflows.
+- **Adapter pattern** for AI provider integrations (OpenAI today, alternate provider later without changing feature logic).

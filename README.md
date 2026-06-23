@@ -91,6 +91,11 @@ ng serve
 
 Keep `smartstudy-ai/` as the only active app code.
 
+
+## Marketability To-Do List
+
+See `docs/marketability-todo.md` for small, clear tasks to make SmartStudy AI easier to position, package, launch, and sell.
+
 ## Monetization Model
 
 - Freemium: limited subjects and limited AI quiz generations.

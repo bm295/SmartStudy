@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+﻿import { Component, computed, signal } from '@angular/core';
 
 interface PracticeQuestion {
   question: string;
@@ -7,39 +7,17 @@ interface PracticeQuestion {
   explanation: string;
 }
 
+const FIRST_QUESTION_INDEX = 0;
+const INITIAL_CORRECT_COUNT = 0;
+
 @Component({
   selector: 'smartstudy-flashcards',
   standalone: true,
-  template: `
-    <section>
-      <h2>Flashcard practice</h2>
-      @if (currentQuestion(); as card) {
-        <p>Question {{ currentIndex() + 1 }} of {{ questions.length }}</p>
-        <h3>{{ card.question }}</h3>
-        <div role="group" aria-label="Answer choices">
-          @for (option of card.options; track option; let index = $index) {
-            <button type="button" [disabled]="selectedIndex() !== null" (click)="chooseAnswer(index)">
-              {{ option }}
-            </button>
-          }
-        </div>
-        @if (selectedIndex() !== null) {
-          <p role="status">
-            {{ selectedIndex() === card.correctIndex ? 'Correct!' : 'Not quite.' }}
-            {{ card.explanation }}
-          </p>
-          <button type="button" (click)="nextQuestion()">
-            {{ currentIndex() + 1 < questions.length ? 'Next question' : 'Finish practice' }}
-          </button>
-        }
-      } @else {
-        <p role="status">Practice complete. You answered {{ correctCount() }} of {{ questions.length }} correctly.</p>
-        <button type="button" (click)="restart()">Practice again</button>
-      }
-    </section>
-  `,
+  styleUrl: './flashcards.component.scss',
+  templateUrl: './flashcards.component.html',
 })
 export class FlashcardsComponent {
+  readonly Math = Math;
   readonly questions: PracticeQuestion[] = [
     {
       question: 'What is a derivative?',
@@ -55,9 +33,9 @@ export class FlashcardsComponent {
     },
   ];
 
-  readonly currentIndex = signal(0);
+  readonly currentIndex = signal(FIRST_QUESTION_INDEX);
   readonly selectedIndex = signal<number | null>(null);
-  readonly correctCount = signal(0);
+  readonly correctCount = signal(INITIAL_CORRECT_COUNT);
   readonly currentQuestion = computed(() => this.questions[this.currentIndex()] ?? null);
 
   chooseAnswer(index: number): void {
@@ -75,8 +53,9 @@ export class FlashcardsComponent {
   }
 
   restart(): void {
-    this.currentIndex.set(0);
+    this.currentIndex.set(FIRST_QUESTION_INDEX);
     this.selectedIndex.set(null);
-    this.correctCount.set(0);
+    this.correctCount.set(INITIAL_CORRECT_COUNT);
   }
 }
+

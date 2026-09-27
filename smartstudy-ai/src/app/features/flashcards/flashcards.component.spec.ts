@@ -17,7 +17,7 @@ describe('FlashcardsComponent', () => {
 
     (element.querySelector('section > button') as HTMLButtonElement).click();
     await fixture.whenStable();
-    expect(element.querySelector('h3')?.textContent).toContain('HTTP 401');
+    expect(element.querySelector('.question-card h2')?.textContent).toContain('HTTP 401');
     expect(element.querySelector('[role="status"]')).toBeNull();
   });
 });

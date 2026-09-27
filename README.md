@@ -72,22 +72,50 @@ SmartStudy AI is a learning platform blueprint for students, focused on:
 
 Use only one codebase for maintenance: `smartstudy-ai/`.
 
-### First-time setup (one time)
+### Prerequisites
 
-```bash
-npm install -g @angular/cli
-ng new smartstudy-ai --routing --style=scss
-cd smartstudy-ai
-npm install
-ng serve
+Install Node.js and npm, then open a new terminal and check that both commands work:
+
+```powershell
+node --version
+npm --version
 ```
+
+A global Angular CLI installation is not required; this workspace already includes it as a development dependency.
+
+### First-time setup
+
+From the repository root:
+
+```powershell
+cd smartstudy-ai
+npm ci
+npm start
+```
+
+Open `http://localhost:4200/` after the server starts.
 
 ### Next runs
 
-```bash
+From the repository root:
+
+```powershell
 cd smartstudy-ai
-ng serve
+npm start
 ```
+
+To run tests with coverage, use `npm test -- --watch=false --coverage` from `smartstudy-ai/`.
+
+### If PowerShell cannot find npm
+
+If `npm` is not recognized, Node.js/npm is missing from `PATH` or is not installed. Install Node.js, reopen PowerShell, and run the version checks above again. On this development machine, Node and npm were found in these locations; if they exist on your machine too, this command enables them for the current PowerShell session:
+
+```powershell
+$env:Path = 'C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\NodeJs;' + "$env:APPDATA\npm;" + $env:Path
+npm --version
+```
+
+For a lasting fix on this machine, add `C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\NodeJs` and `%APPDATA%\npm` to your user `Path` in Windows Environment Variables, then open a new PowerShell window. Check `node --version` and `npm --version` before running the app.
 
 Keep `smartstudy-ai/` as the only active app code.
 

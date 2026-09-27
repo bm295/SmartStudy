@@ -4,34 +4,37 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Development server
 
-To start a local development server, run:
+Install Node.js and npm, then from this directory run:
 
-```bash
-ng serve
+```powershell
+npm ci
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Angular CLI is installed locally by `npm ci`, so no global installation is needed. Once the server is running, open `http://localhost:4200/`. The application reloads when you modify source files.
+
+If PowerShell cannot find `npm`, install Node.js, reopen PowerShell, and check `node --version` and `npm --version`. See the repository root README for a `PATH` workaround used on one development machine.
 
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
+```powershell
+npm exec -- ng generate component component-name
 ```
 
 For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
+```powershell
+npm exec -- ng generate --help
 ```
 
 ## Building
 
 To build the project run:
 
-```bash
-ng build
+```powershell
+npm run build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
@@ -40,19 +43,13 @@ This will compile your project and store the build artifacts in the `dist/` dire
 
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
 
-```bash
-ng test
+```powershell
+npm test -- --watch=false --coverage
 ```
 
 ## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+This project does not currently have an end-to-end test command configured.
 
 ## Additional Resources
 

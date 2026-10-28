@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { AuthStateService } from '../../core/auth/auth-state.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'smartstudy-auth',
@@ -18,13 +19,15 @@ import { AuthStateService } from '../../core/auth/auth-state.service';
         <button type="button" (click)="login()">Login</button>
       } @else {
         <p>Logged in as: <strong>{{ auth.user()?.name }}</strong> ({{ auth.user()?.email }})</p>
-        <button type="button" (click)="auth.logout()">Logout</button>
+        <button type="button" (click)="logout()">Logout</button>
       }
     </section>
   `,
 })
 export class AuthComponent {
   readonly auth = inject(AuthStateService);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
   readonly email = signal('student@smartstudy.ai');
   readonly name = signal('Smart Student');
@@ -37,6 +40,11 @@ export class AuthComponent {
   onNameInput(event: Event): void {
     const value = (event.target as HTMLInputElement | null)?.value ?? '';
     this.name.set(value);
+  }
+
+  logout(): void {
+    this.auth.logout();
+    void this.router.navigateByUrl('/auth');
   }
 
   login(): void {
@@ -56,5 +64,11 @@ export class AuthComponent {
         role: 'student',
       },
     });
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+    if (returnUrl?.startsWith('/') && !returnUrl.startsWith('//')) {
+      void this.router.navigateByUrl(returnUrl);
+    } else {
+      void this.router.navigateByUrl('/');
+    }
   }
 }

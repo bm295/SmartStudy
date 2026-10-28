@@ -6,9 +6,9 @@ This document lists implementation tasks still needed for the current repository
 
 ### 1.1 Route protection and auth flow
 - [x] Add authentication module/state (login, logout, token persistence).
-- [ ] Implement `AuthGuard` for protected routes.
-- [ ] Implement role-based `RoleGuard` for restricted feature access.
-- [ ] Mark relevant routes in `app.routes.ts` with guard metadata.
+- [x] Implement `AuthGuard` for protected routes.
+- [x] Implement role-based `RoleGuard` for restricted feature access.
+- [x] Mark relevant routes in `app.routes.ts` with guard metadata.
 
 ### 1.2 HTTP/API integration
 - [ ] Replace hardcoded/mock feature data with API-driven data using `HttpClient`.
